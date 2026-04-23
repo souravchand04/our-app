@@ -1,0 +1,162 @@
+@import "tailwindcss";
+/* @import "sheryjs/dist/Shery.css"; */
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --base-100:#8e9487;
+ 
+  --base-300:#1d0f67;
+  --base-400:#f0c808;
+  --transition-stroke-1:#fe5e41 ;
+  --transition-stroke-2:#046a6d;
+
+ 
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+section{
+  position:relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+}
+
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  transform: rotate(40deg);
+  transform-origin: bottom left;
+  will-change: transform;
+}
+
+.transition-svg{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(1.5);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.transition-svg svg{
+width: 100%;
+height: 100%;
+}
+
+.transition-svg path{
+  stroke-dashoffset: 99999;
+  stroke-dasharray: 99999;
+}
+
+.canvas-container {
+  width: 100%;
+  height: 100vh;
+ width: 100%;
+  height: 100vh;
+  /* Dark charcoal to pure black radial gradient */
+  background: radial-gradient(circle at center, #111111 0%, #000000 100%);
+}
+
+.canvas-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 150px rgba(0,0,0,0.8);
+  pointer-events: none; /* Crucial so you can still use OrbitControls */
+}
+
+canvas {
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+.fancy-marquee-text {
+  /* Use the variable we defined in layout.tsx */
+  font-family: var(--font-syne), sans-serif; 
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(176, 3, 3, 0.3);
+}
+
+.fancy-marquee-text:nth-child(even) {
+  color: #000; /* Every second word is filled for contrast */
+  -webkit-text-stroke: 0px;
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05); /* Slight increase to backdrop opacity */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+ border: none ;
+  border-top: 0 ;
+  border-bottom: 0 ;
+  
+  /* Ensure no shadow is acting like a border */
+  box-shadow: none;
+}
+
+#fluid{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: difference;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+
+}
+
+/* Parallax optimization */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* cursor: none; */
+}
+
+/* Smooth rendering for parallax elements */
+[style*="transform"] {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
