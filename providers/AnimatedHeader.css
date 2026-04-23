@@ -1,0 +1,41 @@
+
+.word{
+    display: inline-block;
+}
+
+.char{
+    display: inline-block;
+    will-change: transform,opacity;
+}
+
+:root{
+  --base-100:#23002b;
+  --base-200:#e894ff;
+  --base-300:#002529;
+  --base-400:#94ffe4;
+  --base-500:#291900;
+  --base-600:#ffab46;
+   --tone-100:#000000;
+  --tone-200:#222222;
+  --tone-300:#5b5c57;
+  --tone-400:#e3e4d8;
+  --tone-500:#fe0100;
+}
+
+.one{
+    background-color: var(--base-100);
+    color:var(--base-200)
+}
+.two{
+    color: var(--base-400);
+}
+.three{
+    color: var(--base-600);
+}
+.four{
+    color: brown;
+}
+
+.five{
+    color: var(--tone-100);
+}
